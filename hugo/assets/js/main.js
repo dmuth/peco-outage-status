@@ -194,6 +194,26 @@ function fetchCurrent() {
 
 
 /**
+* Update our graph.
+*/
+function updateGraph(data) {
+
+/* TEST/TODO
+- Get canvas by ID
+- Create labels
+- Create dataset
+- Figure out how to fit labels in
+- Figure out y-axis label
+- Figure out how to apply custom mouseover to show percentages as well
+- See if I can fetch 2 hours worth of data
+
+*/
+console.log(data[0]);
+
+} // End of updateGraph()
+
+
+/**
 * Fetch recent statuses from PECO and update the DOM.
 */
 async function fetchRecent() {
@@ -209,6 +229,9 @@ async function fetchRecent() {
         return(response.json());
 
     }).then(data => {
+
+        updateGraph(data);
+
         //
         // Update our list with the recent statuses.
         //
