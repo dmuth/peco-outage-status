@@ -2,3 +2,4 @@
 {{ $js := resources.Get "js/main.js" }}
 {{ $jsMin := $js | resources.Minify }}
 <script src="{{ $jsMin.RelPermalink }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
