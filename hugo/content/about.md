@@ -56,8 +56,11 @@ Javascript and CSS.  So I did.
 
 ## If everything is hand-coded, why did you use D3 for the graph?
 
-Because if I wanted to mess with individual pixels I'd go back to the 3rd Grade and write some 
-[Logo](https://en.wikipedia.org/wiki/Logo_(programming_language)).
+Because if I wanted to mess with individual pixels I'd go back to the 3rd Grade, write some 
+[Logo](https://en.wikipedia.org/wiki/Logo_(programming_language)), and then have chocolate milk 
+at lunch while eating hamburger hash with a spork.
+
+...or you could just let me use D3 like an adult.
 
 
 ## Is the source code available?
