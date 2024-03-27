@@ -69,7 +69,8 @@ Yep!  You can get the source at [https://github.com/dmuth/peco-outage-status](ht
 
 Yep!  I've built a few things you may find interesting:
 
-- [Diceware Password Generator](https://diceware.dmuth.org/)
+- [Diceware Password Generator](https://diceware.dmuth.org/) - Passphrase generator using the "diceware" method.
+- [Dead Simple QR Code Generator](https://httpbin.dmuth.org/qrcode/) - No ads, signups, or spam. Just QR Codes when you want them.
 - [FastAPI Httpbin](https://httpbin.dmuth.org/) - HTTP endpoints for testing.  Built with FastAPI.
 - [Is SEPTA F\*cked?](https://www.isseptafucked.com/) - Like this site.  But for SEPTA. With 100% more profanity.
 - [SEPTA Stats](https://septastats.com/) - Stats on Philadelphia Public Transit with 100% less profanity.
