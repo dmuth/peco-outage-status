@@ -207,42 +207,78 @@ function updateGraph(data_in) {
     var data = {
         labels: [],
         datasets: [{
-            label: "TEST label",
+            label: "Customer Outages",
             data: [],
             borderColor: "blue",
             borderWidth: 1
             }],
         }
 
-    data_in.forEach( (value) => {
+    data_in.forEach( (value, key) => {
         data["labels"].push(value["datetime"]);
         data["datasets"][0]["data"].push(value["customers_outages"]);
+        //data["datasets"][0]["data"].push(key); // Debugging
         });
 
-console.log("DATA", JSON.stringify(data, null, 2));
+    //console.log("DATA", JSON.stringify(data, null, 2)); // Debugging
+    var options = {
+        scales: {
+            y: {
+                title: {
+                    display: true,
+                    text: "Customer Outages"
+                    },
+                    ticks: {
+                        // Don't show decimal points if we have a very small range.
+                        precision: 0
+                    },
+                },
+            },
+        plugins: {
+            legend: {
+                display: false,
+                }
+            }
+        }
+
+    //
+    // If we have a relatively flat line and therefore a low difference between 
+    // min and max values, add in some suggested minimums and maximums so there
+    // are more than 1 or 2 tickmarks on the y-axis.
+    //
+    var min = Math.min(...data["datasets"][0]["data"]);
+    var max = Math.max(...data["datasets"][0]["data"]);
+    var diff = max - min;
+    var min_diff = 10;
+
+    if (diff < min_diff) {
+
+        suggestedMin = min - 5;
+        if (suggestedMin < 0) {
+            suggestedMin = 0;
+        }
+
+        options.scales.y.suggestedMin = suggestedMin;
+        options.scales.y.suggestedMax = max + 5;
+
+    }
+
     var chart = new Chart(canvas, {
         type: "line",
         data: data,
-        options: {
-            scales: {
-                y: {
-                    title: {
-                        display: true,
-                        text: "Customer Outages"
-                        }
-                    }
-                }
-            }
+        options: options,
         });
 
 /* TEST/TODO
 X Get canvas by ID
 X Create labels
 X Create dataset
-- Figure out y-axis label
+X Figure out y-axis label
 - Figure out how to fit labels in
 - Figure out how to apply custom mouseover to show percentages as well
+- Do some refactoring in the Javascript
 - See if I can fetch 2 hours worth of data
+- Mobile friendliness - Figure out width and height
 
 */
 
