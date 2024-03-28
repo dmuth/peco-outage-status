@@ -196,19 +196,55 @@ function fetchCurrent() {
 /**
 * Update our graph.
 */
-function updateGraph(data) {
+function updateGraph(data_in) {
+
+    // Sort the elements in ascending order by time.
+    data_in.reverse();
+
+    var canvas = document.getElementById("peco-status-recent-chart").getContext("2d");
+    //var ctx = document.getElementById("peco-status-recent-chart").getContext("2d");
+
+    var data = {
+        labels: [],
+        datasets: [{
+            label: "TEST label",
+            data: [],
+            borderColor: "blue",
+            borderWidth: 1
+            }],
+        }
+
+    data_in.forEach( (value) => {
+        data["labels"].push(value["datetime"]);
+        data["datasets"][0]["data"].push(value["customers_outages"]);
+        });
+
+console.log("DATA", JSON.stringify(data, null, 2));
+    var chart = new Chart(canvas, {
+        type: "line",
+        data: data,
+        options: {
+            scales: {
+                y: {
+                    title: {
+                        display: true,
+                        text: "Customer Outages"
+                        }
+                    }
+                }
+            }
+        });
 
 /* TEST/TODO
-- Get canvas by ID
-- Create labels
-- Create dataset
-- Figure out how to fit labels in
+X Get canvas by ID
+X Create labels
+X Create dataset
 - Figure out y-axis label
+- Figure out how to fit labels in
 - Figure out how to apply custom mouseover to show percentages as well
 - See if I can fetch 2 hours worth of data
 
 */
-console.log(data[0]);
 
 } // End of updateGraph()
 
