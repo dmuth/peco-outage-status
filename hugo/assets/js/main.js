@@ -210,7 +210,11 @@ function updateGraph(data_in) {
             label: "Customer Outages",
             data: [],
             borderColor: "blue",
-            borderWidth: 1
+            borderWidth: 3,
+            pointStyle: "circle",
+            pointRadius: 5,
+            pointBorderColor: "blue",
+            pointBackgroundColor: "blue",
             }],
         }
 
