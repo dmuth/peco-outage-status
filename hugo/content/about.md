@@ -40,7 +40,7 @@ static site generator.
 
 The back end consists of AWS Lambda to provide API endpoints, with the underlying code being
 written in Python.  The HTML is stored in an S3 bucket and served by via CloudFront which performs
-SSL termination.
+SSL termination.  The data is stored in DynamoDB.
 
 
 ## Did you really hand code all of the Javascript and CSS?
